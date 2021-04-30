@@ -24,6 +24,7 @@
                 @enderror
               </div>
             </div>
+
             <div class="form-group row">
               <label for="child" class="col-md-4 col-form-label text-md-right">Ребенок</label>
 
@@ -31,6 +32,20 @@
                 <input id="child" type="text" class="form-control @error('child') is-invalid @enderror" name="child" value="{{ old('child') }}" required autocomplete="name" autofocus>
 
                 @error('child')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="phone" class="col-md-4 col-form-label text-md-right">Телефон</label>
+
+              <div class="col-md-6">
+                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="name" autofocus>
+
+                @error('phone')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
