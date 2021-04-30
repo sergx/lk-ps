@@ -1,0 +1,38 @@
+.formulate-input{
+  font-family: inherit;
+}
+.formulate-input[data-classification=button] button{
+  font-family: inherit;
+  font-weight: normal;
+  padding: 0.75em 1.25em 0.7em;
+}
+.formulate-form.form_generator {
+  border: 1px solid rgb(0 0 0 / 8%);
+  padding: 14px;
+  border-radius: 5px;
+}
+.formulate-input-wrapper label{
+  margin-bottom: 0;
+}
+.formulate-input .formulate-input-label{
+  font-size: 1rem;
+}
+.formulate-input-label.formulate-input-label--before{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.formulate-input[data-classification=button] button[data-minor]{
+  font-size: 0.8rem;
+}
+.formulate-input-element--text,
+.formulate-input-element--textarea{
+  background-color: #fff;
+}
+.formulate-input[data-classification=text] input,
+.formulate-input[data-classification=textarea] textarea{
+  font-size: 1rem;
+}
+.formulate-input[data-classification="box"] .formulate-input-element[data-type="radio"] .formulate-input-element-decorator,
+.formulate-input[data-classification=box] .formulate-input-element-decorator{
+  background: #fff;
+}
