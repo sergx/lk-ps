@@ -16,7 +16,7 @@ class RolePermissionAdminSeeder extends Seeder {
 
     Permission::create(['name' => 'admin only']);
 
-    $role_admin = Role::create(['name' => 'Admin']);
+    $role_admin = Role::create(['name' => 'admin']);
     $role_admin->givePermissionTo('admin only');
 
     $user = \App\Models\User::factory()->create([

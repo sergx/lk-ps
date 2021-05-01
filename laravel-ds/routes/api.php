@@ -29,8 +29,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/user/auth-data', [UserController::class, 'authData']);
 Route::post('/quiz', [QuizController::class, 'index']);
+Route::post('/quiz/{id}/show', [QuizController::class, 'show']);
+Route::post('/quiz-answer/save', [QuizAnswerController::class, 'save']);
 
-Route::middleware(['role:Admin'])->group(
+Route::middleware(['role:admin'])->group(
   function () {
     Route::post('/permissions-and-roles/', [PermissionController::class, 'getPermissionsAndRoles']);
     Route::post('/permissions-and-roles/permission/add', [PermissionController::class, 'addPermission']);
@@ -49,11 +51,9 @@ Route::middleware(['role:Admin'])->group(
     Route::post('/quiz/file-upload', [QuizController::class, 'fileUpload']);
     Route::post('/quiz/save', [QuizController::class, 'save']);
     Route::post('/quiz/{id}/edit', [QuizController::class, 'edit']);
-    Route::post('/quiz/{id}/show', [QuizController::class, 'show']);
     Route::post('/quiz/{id}/destroy', [QuizController::class, 'destroy']);
 
     Route::post('/quiz-answer', [QuizAnswerController::class, 'index']);
-    Route::post('/quiz-answer/save', [QuizAnswerController::class, 'save']);
     Route::post('/quiz-answer/show', [QuizAnswerController::class, 'show']);
     Route::post('/quiz-answer/{id}/destroy', [QuizAnswerController::class, 'destroy']);
   }

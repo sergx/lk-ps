@@ -27,10 +27,7 @@ class UserController extends Controller {
     $RegisterUser = new RegisterUser();
     $RegisterUser->validator($request->all())->validate();
 
-    $user = $RegisterUser->create(array_merge(
-      $request->only(['name', 'email', 'phone', 'child']),
-      ['password' => 'default_password']
-    ));
+    $user = $RegisterUser->create($request->only(['name', 'email', 'phone', 'child', 'password']));
     return [
       'notify' => ['text' => 'Пользователь <strong>' . $user->name . '</strong> создан!']
     ];

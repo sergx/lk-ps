@@ -46,6 +46,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   switch (to.matched[0].path) {
     case "/lk/quiz":
+    case "/lk/quiz/:id(\\d+)":
     case "/lk/page-not-found":
     case "/lk/*":
       // Эти пути доступны любому авторизованному (Проверка авторизации происходит на уровне middleware Laravel)

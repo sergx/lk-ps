@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td>
-      <div><strong><router-link :to="'/user/'+user.id">{{user.name}}</router-link></strong></div>
+      <div><strong><router-link :to="{name: 'user.edit', params:{id:user.id}}">{{user.name}}</router-link></strong></div>
       <span v-if="false">(это Вы)</span>
       <div>{{user.child}}</div>
       <div><small><a :href="'mailto:'+user.email">{{user.email}}</a></small></div>

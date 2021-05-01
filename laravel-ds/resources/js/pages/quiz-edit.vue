@@ -370,7 +370,7 @@ export default {
         values:{},
         generator_values:{
           title:"Вопрос"+(this.steps.length+1)+"..",
-          description:"Пояснение"+(this.steps.length+1)+"..",
+          description:"",
           custom_answer_enable:true,
         }
       });
