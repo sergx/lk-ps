@@ -41,6 +41,10 @@ const httpClient = (data, url, method) => {
       if (error.response !== undefined) {
         console.warn(error.response.data);
         let text = error.response.data.message;
+        if (text == "CSRF token mismatch.") {
+          alert("Сессия устарела, нужно авторизироваться снова");
+          window.location = window.location.origin + "/lk/login";
+        }
         if (error.response.data.errors) {
           text += "<br>";
           for (let i in error.response.data.errors) {
