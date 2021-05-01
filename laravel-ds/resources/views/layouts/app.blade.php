@@ -62,7 +62,7 @@
             </li>
             @endif
 
-            @if (Route::has('register'))
+            @if (Route::has('register') && env('PIONEER_REGISTER_OPEN'))
             <li class="nav-item">
               <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>

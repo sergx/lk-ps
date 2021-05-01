@@ -23,6 +23,13 @@ class RegisterController extends Controller {
 
   use RegistersUsers;
 
+  public function showRegistrationForm() {
+    if(!env('PIONEER_REGISTER_OPEN')){
+      return redirect($this->redirectTo);
+    }
+    return view('auth.register');
+  }
+
   /**
    * Where to redirect users after registration.
    *
