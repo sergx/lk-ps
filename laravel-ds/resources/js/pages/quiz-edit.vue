@@ -23,6 +23,13 @@
       </div>
     </div>
 
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Описание опроса:</span>
+      </div>
+      <textarea class="form-control" v-model="description"></textarea>
+    </div>
+
     <div class="mb-4 mt-4">
       <h2>Шаги <button type="button" class="btn btn-primary btn-sm" @click="addStep" :disabled="!!answers.length">+ Добавить</button></h2>
       <div class="switch_steps mb-3">
@@ -275,6 +282,7 @@ export default {
     return {
       active_step_index: null,
       name: "Новый опрос",
+      description: "",
       steps: [],
       answers: [],
       schema_generator: [
@@ -328,6 +336,7 @@ export default {
           });
           this.steps = response.data.props.steps;
           this.name = response.data.props.name;
+          this.description = response.data.props.description;
           this.answers = response.data.props.quiz_answer;
           if(response.data.props.quiz_answer.length){
             this.$root.notify({ type: 'error', duration: 15000, text: 'У опроса <strong>'+response.data.props.name+'</strong> уже есть Ответы ('+response.data.props.quiz_answer.length+' шт). Поэтому опрос уже нельзя реактировать' });
@@ -344,6 +353,7 @@ export default {
       return this.$root.ajax_basic({
         id: this.$route.params.id || 0,
         name: this.name,
+        description: this.description,
         steps: this.stepsExport(),
         schema_question: this.schema_question,
        }, '/lk/api/quiz/save' ).then(response => {

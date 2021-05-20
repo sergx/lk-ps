@@ -11,7 +11,7 @@
       <thead>
         <tr>
           <th>Название</th>
-          <th>Вопросы</th>
+          <th>Описание</th>
         </tr>
       </thead>
       <tbody>
@@ -23,12 +23,13 @@
             <div class="mt-1" v-if="$can('admin only')"><small><router-link :to="{ name : 'quiz.edit', params: { id: quiz.id} }">Редактировать опрос</router-link></small></div>
           </td>
           <td>
-            <ul>
+            {{quiz.description}}
+            <!-- <ul>
               <li v-for="(question, index) in quiz.steps" :key="index" class="mb-2">
                 <div><strong>{{ question.generator_values.title }}</strong></div>
                 <div v-if="question.generator_values.description"><small>{{ question.generator_values.description }}</small></div>
               </li>
-            </ul>
+            </ul> -->
           </td>
         </tr>
       </tbody>

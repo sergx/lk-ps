@@ -33,6 +33,7 @@ class Quiz extends Model {
 
   protected $fillable = [
     'name',
+    'description',
     'steps',
     'schema_question',
   ];
